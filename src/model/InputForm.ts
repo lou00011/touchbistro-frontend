@@ -2,7 +2,7 @@ export interface InputForm {
   input: string | number
 }
 
-// Form validate.js constraint variable
+//validate.js constraint variable
 const constraint = {
   input: {
     numericality: {
