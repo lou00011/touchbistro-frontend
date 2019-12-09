@@ -1,11 +1,14 @@
 import React from 'react';
+
 import { DataContext } from './view/contexts/DataContext'
 import InputComponent from './view/components/UserInputField'
 import OutputComponent from './view/components/TextOutputPanel'
-import { EuiSpacer } from '@elastic/eui'
-import './App.css'
+
+// UI lib imports
 import { EuiFlexGroup } from '@elastic/eui';
 import { EuiFlexItem } from '@elastic/eui';
+// CSS imports
+import './App.css'
 
 const App = () => {
   return (
