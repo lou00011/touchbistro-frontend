@@ -11,7 +11,6 @@ const Component = () => {
 
   return(
     <EuiPanel
-      max-width='400px'
       grow={true}
     >
       <EuiText>

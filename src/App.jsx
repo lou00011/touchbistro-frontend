@@ -16,9 +16,7 @@ const App = () => {
           gutterSize='m'
           responsive={false}
         >
-          <EuiFlexItem
-          
-          >
+          <EuiFlexItem>
             <InputComponent />
           </EuiFlexItem>
           <EuiFlexItem>
