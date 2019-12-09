@@ -6,11 +6,14 @@ const Context = createContext(undefined)
 
 // Custom hook which contains all state and logic necessary for child components to render
 const useDataContext = () => {
-  const [state, setState] = useState({ input: '' })
-  const errorMsg = [validate(state, constraint)]
-
-  // if state is validation passing, validate.js returns undefined
-  const hasError = errorMsg !== undefined
+  const [state, setState] = useState({
+    input: '',
+    hadFocus: false
+  })
+  
+  // if state is validation passing, validate.js returns undefined. Eui takes an array of strings as error messages
+  const errorMsg  = !validate(state, constraint)? [] : validate(state, constraint).input
+  const hasError  = state.hadFocus && validate(state, constraint) !== undefined
 
   return {
     state,
