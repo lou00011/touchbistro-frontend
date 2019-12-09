@@ -4,7 +4,7 @@ import validate from 'validate.js'
 
 const Context = createContext(undefined)
 
-// Custom hook which contains all state/logic necessary for child components to render
+// Custom hook which contains all state and logic necessary for child components to render
 const useDataContext = () => {
   const [state, setState] = useState({ input: '' })
   const errorMsg = [validate(state, constraint)]
@@ -20,12 +20,12 @@ const useDataContext = () => {
   }
 }
 
-const DataContext = (children) => {
+const DataContext = (props) => {
   const stateObj = useDataContext()
 
   return (
     <Context.Provider value={stateObj}>
-      {...children}
+      {props.children}
     </Context.Provider>
   )
 }
