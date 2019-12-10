@@ -36,7 +36,7 @@ const useDataContext = () => {
         }
       })()
     }
-  }, 450 , [state])
+  }, 400 , [state])
 
   return {
     state,
