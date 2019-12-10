@@ -7,7 +7,8 @@ const constraint = {
   input: {
     numericality: {
       onlyInteger: true,
-      greaterThan: 1,
+      greaterThan: 2,
+      lessThan: 99999
     }
   }
 }
