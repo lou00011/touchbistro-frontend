@@ -1,4 +1,4 @@
-function prettyPrint(input: any, output: any){
+function prettyPrint(input: string, output: string){
   return `${input} -> ${output}`
 }
 
