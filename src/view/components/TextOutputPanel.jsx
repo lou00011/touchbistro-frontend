@@ -13,7 +13,9 @@ const Component = () => {
     <EuiPanel
       grow={true}
     >
-      <EuiText>
+      <EuiText
+        data-testid='outputText'
+      >
         <pre>
           <code>
               { display }

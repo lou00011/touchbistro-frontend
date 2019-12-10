@@ -22,6 +22,7 @@ const Component = () => {
         error={errorMsg}
       >
         <EuiFieldText
+          data-testid='inputField'
           //visual 
           fullWidth
           //logic
