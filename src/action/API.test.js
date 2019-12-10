@@ -30,8 +30,8 @@ describe('API fetch/POST tests', () => {
   })
 
   test('Valid - return json return correct calculations #4', async (done) => {
-    const actual = await postData({input: 2})
-    const expected = {output: []}
+    const actual = await postData({input: 3})
+    const expected = {output: [2]}
     expect(actual).toStrictEqual(expected)
     done()
   })
