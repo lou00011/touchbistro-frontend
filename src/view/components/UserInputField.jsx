@@ -13,7 +13,6 @@ const Component = () => {
 
   return (
     <EuiForm>
-
       <EuiFormRow
         //visual
         hasEmptyLabelSpace={true}
@@ -28,7 +27,7 @@ const Component = () => {
           //logic
           placeholder="Enter a natural number"
           value={state.input}
-          onChange={e => setState({ ...state, hadFocus: true, input: e.target.value })}
+          onChange={e => setState({ hadFocus: true, input: e.target.value })}
           isInvalid={hasError}
         />
       </EuiFormRow>
