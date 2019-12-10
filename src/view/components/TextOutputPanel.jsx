@@ -16,7 +16,7 @@ const Component = () => {
       <EuiText>
         <pre>
           <code>
-              { state.input }
+              { state.output }
           </code>
         </pre>
       </EuiText>
