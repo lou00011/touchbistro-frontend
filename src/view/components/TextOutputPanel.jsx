@@ -6,7 +6,7 @@ import {
   EuiText, } from '@elastic/eui'
 
 const Component = () => {
-  const {state, setState, errorMsg, hasError } = useContext(Context)
+  const { display } = useContext(Context)
 
 
   return(
@@ -16,7 +16,7 @@ const Component = () => {
       <EuiText>
         <pre>
           <code>
-              { state.output }
+              { display }
           </code>
         </pre>
       </EuiText>

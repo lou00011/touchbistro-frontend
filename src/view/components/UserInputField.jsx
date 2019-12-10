@@ -12,24 +12,27 @@ const Component = () => {
   const { state, setState, errorMsg, hasError } = useContext(Context)
 
   return (
-    <EuiFormRow
-      //visual
-      hasEmptyLabelSpace={true}
-      fullWidth
-      //logic
-      isInvalid={hasError}
-      error={errorMsg}
-    >
-      <EuiFieldText
-        //visual 
+    <EuiForm>
+
+      <EuiFormRow
+        //visual
+        hasEmptyLabelSpace={true}
         fullWidth
         //logic
-        placeholder="Enter a natural number"
-        value={state.input}
-        onChange={e => setState({ hadFocus: true, input: e.target.value })}
         isInvalid={hasError}
-      />
-    </EuiFormRow>
+        error={errorMsg}
+      >
+        <EuiFieldText
+          //visual 
+          fullWidth
+          //logic
+          placeholder="Enter a natural number"
+          value={state.input}
+          onChange={e => setState({ ...state, hadFocus: true, input: e.target.value })}
+          isInvalid={hasError}
+        />
+      </EuiFormRow>
+    </EuiForm>
   )
 }
 
