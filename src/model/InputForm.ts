@@ -5,6 +5,9 @@ export interface InputForm {
 //validate.js constraint variable
 const constraint = {
   input: {
+    presence: {
+      allowEmpty: false
+    },
     numericality: {
       onlyInteger: true,
       greaterThan: 2,
