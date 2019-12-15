@@ -9,7 +9,7 @@ import {
 
 const Component = () => {
 
-  const { sendEvent, hasError, errorMsg, getCurrentValue } = useContext(Context)
+  const { sendEvent, hasError, errorMsg, currentValue } = useContext(Context)
 
   return (
     <EuiForm>
@@ -18,8 +18,8 @@ const Component = () => {
         hasEmptyLabelSpace={true}
         fullWidth
         //logic
-        isInvalid={hasError()}
-        error={errorMsg()}
+        isInvalid={hasError}
+        error={errorMsg}
       >
         <EuiFieldText
           data-testid='inputField'
@@ -27,9 +27,9 @@ const Component = () => {
           fullWidth
           //logic
           placeholder="Enter a natural number"
-          value={getCurrentValue()}
+          value={currentValue}
           onChange={e => sendEvent(e.target.value)}
-          isInvalid={hasError()}
+          isInvalid={hasError}
         />
       </EuiFormRow>
     </EuiForm>

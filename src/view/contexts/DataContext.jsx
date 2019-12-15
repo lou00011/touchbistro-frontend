@@ -12,37 +12,29 @@ const Context = createContext(undefined)
 
 const useDataContext = () => {
 
+  //Core states
   const [current, send] = useMachine(initMachine())
   const [display, setDisplay] = useState()
+
+  // Derived/computed values
+  const currentValue = current.context.input
+  const hasNoError = current.matches({ active: 'valid' })
+  const hasError = current.matches({ active: 'invalid' })
+  const errorMsg = hasNoError() ? [] : validate(current.context, constraint).input
 
   useDebounce(() => {
     if (hasNoError()) {
       (async () => {
         const data = await postData({ input: parseInt(current.context.input) })
         setDisplay(
-          prettyPrint(getCurrentValue(), JSON.stringify(data.output)))
+          prettyPrint(currentValue, JSON.stringify(data.output)))
       })()
     }
   }, 400, [current])
 
+  // Event dispatch fx
   function sendEvent(inputFieldValue) {
     send({ type: 'INTERACT', value: inputFieldValue })
-  }
-
-  function hasNoError() {
-    return current.matches({ active: 'valid' })
-  }
-
-  function hasError() {
-    return current.matches({ active: 'invalid' })
-  }
-
-  function errorMsg() {
-    return hasNoError() ? [] : validate(current.context, constraint).input
-  }
-
-  function getCurrentValue() {
-    return current.context.input
   }
 
   return {
@@ -50,7 +42,7 @@ const useDataContext = () => {
     hasError,
     errorMsg,
     // displayStates
-    getCurrentValue,
+    currentValue,
     display
   }
 }
