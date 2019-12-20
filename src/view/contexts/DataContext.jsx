@@ -20,10 +20,10 @@ const useDataContext = () => {
   const currentValue = current.context.input
   const hasNoError = current.matches({ active: 'valid' })
   const hasError = current.matches({ active: 'invalid' })
-  const errorMsg = hasNoError() ? [] : validate(current.context, constraint).input
+  const errorMsg = hasNoError ? [] : validate(current.context, constraint).input
 
   useDebounce(() => {
-    if (hasNoError()) {
+    if (hasNoError) {
       (async () => {
         const data = await postData({ input: parseInt(current.context.input) })
         setDisplay(
